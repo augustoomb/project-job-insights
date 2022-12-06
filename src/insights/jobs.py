@@ -22,21 +22,22 @@ def read(path: str) -> List[Dict]:
 
 
 def get_unique_job_types(path: str) -> List[str]:
-    """Checks all different job types and returns a list of them
+    data = read(path)
 
-    Must call `read`
+    set_job_type = set()
+    list_job_type = []
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
+    # salvar para um conjunto(set), pois ele ignora dados repetidos:
+    for item_data in data:
+        set_job_type.add(item_data["job_type"])
 
-    Returns
-    -------
-    list
-        List of unique job types
-    """
-    raise NotImplementedError
+    # movendo do set para uma lista conforme solicitado
+    for item_job_type in set_job_type:
+        list_job_type.append(item_job_type)
+
+    return list_job_type
+
+    # raise NotImplementedError
 
 
 def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
@@ -58,8 +59,11 @@ def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
 
 
 # def main():
-#     # requisito 1: utilização:
-#     print(read("../../tests/mocks/jobs.csv"))
+#     # # requisito 1: utilização:
+#     # print(read("../../tests/mocks/jobs.csv"))
+
+#     # requisito 2: utilização
+#     # print(get_unique_job_types("../../tests/mocks/jobs.csv"))
 
 
 # main()
