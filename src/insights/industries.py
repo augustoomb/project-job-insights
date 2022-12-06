@@ -1,22 +1,25 @@
+from src.insights.jobs import read
 from typing import List, Dict
 
 
 def get_unique_industries(path: str) -> List[str]:
-    """Checks all different industries and returns a list of them
+    data = read(path)
 
-    Must call `read`
+    set_industry = set()
+    list_industry = []
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
+    # salvar para um conjunto(set), pois ele ignora dados repetidos:
+    for item_data in data:
+        set_industry.add(item_data["industry"])
 
-    Returns
-    -------
-    list
-        List of unique industries
-    """
-    raise NotImplementedError
+    # movendo do set para uma lista conforme solicitado
+    for item_industry in set_industry:
+        if item_industry != "":
+            list_industry.append(item_industry)
+
+    return list_industry
+
+    # raise NotImplementedError
 
 
 def filter_by_industry(jobs: List[Dict], industry: str) -> List[Dict]:
@@ -35,3 +38,11 @@ def filter_by_industry(jobs: List[Dict], industry: str) -> List[Dict]:
         List of jobs with provided industry
     """
     raise NotImplementedError
+
+
+# def main():
+#     # requisito 3: utilização
+#     print(get_unique_industries("../../tests/mocks/jobs_with_industries.csv"))
+
+
+# main()
