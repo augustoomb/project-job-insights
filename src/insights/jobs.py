@@ -1,23 +1,23 @@
+import csv
 from functools import lru_cache
 from typing import List, Dict
 
 # requisito 1
+# https://courses.cs.washington.edu/courses/cse140/13wi/csv-parsing.html
 
 
 @lru_cache
 def read(path: str) -> List[Dict]:
-    """Reads a file from a given path and returns its contents
+    with open(path, encoding="utf-8") as file:
+        content = csv.DictReader(file, delimiter=",", quotechar='"')
 
-    Parameters
-    ----------
-    path : str
-        Full path to file
+        list_dict = []
 
-    Returns
-    -------
-    list
-        List of rows as dicts
-    """
+        for item in content:
+            list_dict.append(item)
+
+        return list_dict
+
     raise NotImplementedError
 
 
@@ -55,3 +55,11 @@ def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
         List of jobs with provided job_type
     """
     raise NotImplementedError
+
+
+# def main():
+#     # requisito 1: utilização:
+#     print(read("../../tests/mocks/jobs.csv"))
+
+
+# main()
