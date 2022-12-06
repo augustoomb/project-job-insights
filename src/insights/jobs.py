@@ -41,29 +41,27 @@ def get_unique_job_types(path: str) -> List[str]:
 
 
 def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
-    """Filters a list of jobs by job_type
+    # for job in jobs:
+    #     if(job["job_type"] == job_type)
 
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    job_type : str
-        Job type for the list filter
+    filtered_jobs = [job for job in jobs if (job["job_type"] == job_type)]
 
-    Returns
-    -------
-    list
-        List of jobs with provided job_type
-    """
-    raise NotImplementedError
+    return filtered_jobs
+
+    # raise NotImplementedError
 
 
 # def main():
-#     # # requisito 1: utilização:
-#     # print(read("../../tests/mocks/jobs.csv"))
+#     #     # # requisito 1: utilização:
+#     #     # print(read("../../tests/mocks/jobs.csv"))
 
-#     # requisito 2: utilização
-#     # print(get_unique_job_types("../../tests/mocks/jobs.csv"))
+#     #     # requisito 2: utilização
+#     #     # print(get_unique_job_types("../../tests/mocks/jobs.csv"))
+
+#     # requisito 6: utilização
+#     # print(
+#     #     filter_by_job_type([], "trainee")
+#     # )
 
 
 # main()
