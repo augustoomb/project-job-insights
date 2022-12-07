@@ -95,3 +95,32 @@ def sort_by(jobs: List[Dict], criteria: str) -> None:
     reverse = criteria in ["max_salary", "date_posted"]
 
     jobs.sort(key=key, reverse=reverse)
+
+
+# resposta é None mesmo, pois a função apenas ordena. Não devolve a lista
+# def main():
+#     print(
+#         sort_by(
+#             [
+#                 {
+#                     "date_posted": "01-02-2022",
+#                     "max_salary": 30000,
+#                     "min_salary": 10000,
+#                 },
+#                 {
+#                     "date_posted": "03-09-2021",
+#                     "max_salary": 50000,
+#                     "min_salary": 20000,
+#                 },
+#                 {
+#                     "date_posted": "05-10-2022",
+#                     "max_salary": 90000,
+#                     "min_salary": 50000,
+#                 },
+#             ],
+#             "date_posted",
+#         )
+#     )
+
+
+# main()
