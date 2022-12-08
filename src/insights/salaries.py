@@ -78,39 +78,46 @@ def filter_by_salary_range(
 
     return filtered
 
-    """Filters a list of jobs by salary range
 
-    Parameters
-    ----------
-    jobs : list
-        The jobs to be filtered
-    salary : int
-        The salary to be used as filter
-
-    Returns
-    -------
-    list
-        Jobs whose salary range contains `salary`
-    """
-    raise NotImplementedError
+# raise NotImplementedError
 
 
-# def main():
-#     # print(matches_salary_range({"max_salary": 1500, "min_salary": 0}, "5"))
+def main():
 
-#     # salaries pra testar: salaries = [0, 1, 5, 1000, 2000, -1, -2,
-#     # None, "", [], {}, lambda: 1]
+    jobs = [
+        {"max_salary": 0, "min_salary": 10},  # posição 0
+        {"max_salary": 10, "min_salary": 100},  # posição 1
+        {"max_salary": 10000, "min_salary": 200},  # posição 2
+        {"max_salary": 15000, "min_salary": 0},  # posição 3
+        {"max_salary": 1500, "min_salary": 0},  # posição 4
+        {"max_salary": -1, "min_salary": 10},  # posição 5
+    ]
 
-#     jobs = [
-#         {"max_salary": 0, "min_salary": 10},
-#         {"max_salary": 10, "min_salary": 100},
-#         {"max_salary": 10000, "min_salary": 200},
-#         {"max_salary": 15000, "min_salary": 0},
-#         {"max_salary": 1500, "min_salary": 0},
-#         {"max_salary": -1, "min_salary": 10},
-#     ]
+    # salaries = [0, 1, 5, 1000, 2000, -1, -2, None, "", [], {}, lambda: 1]
 
-#     print(filter_by_salary_range(jobs, 5))
+    filter_by_salary_range(jobs, 0)
 
 
-# main()
+main()
+
+
+# ----------------------
+# def filter_by_salary_range(
+#     jobs: List[dict], salary: Union[str, int]
+# ) -> List[Dict]:
+
+#     filtered = []
+
+#     for job in jobs:
+#         try:
+#             result = matches_salary_range(job, salary)
+#             if result:
+#                 filtered.append(job)
+
+#         except ValueError as err:
+#             if str(err) == "salary deve ser número":
+#                 sys.exit(1)
+#             else:
+#                 pass
+
+#     return filtered
