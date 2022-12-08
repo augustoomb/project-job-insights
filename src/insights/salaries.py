@@ -53,7 +53,8 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
     ):
         raise ValueError("min_salary e max_salary devem ser números")
 
-    if job["min_salary"] > job["max_salary"]:
+    # if job["min_salary"] > job["max_salary"]:
+    if int(job["min_salary"]) > int(job["max_salary"]):
         raise ValueError("min_salary deve ser menor que max_salary")
 
     return int(job["min_salary"]) <= int(salary) <= int(job["max_salary"])
@@ -82,23 +83,23 @@ def filter_by_salary_range(
 # raise NotImplementedError
 
 
-def main():
+# def main():
 
-    jobs = [
-        {"max_salary": 0, "min_salary": 10},  # posição 0
-        {"max_salary": 10, "min_salary": 100},  # posição 1
-        {"max_salary": 10000, "min_salary": 200},  # posição 2
-        {"max_salary": 15000, "min_salary": 0},  # posição 3
-        {"max_salary": 1500, "min_salary": 0},  # posição 4
-        {"max_salary": -1, "min_salary": 10},  # posição 5
-    ]
+#     jobs = [
+#         {"max_salary": 0, "min_salary": 10},  # posição 0
+#         {"max_salary": 10, "min_salary": 100},  # posição 1
+#         {"max_salary": 10000, "min_salary": 200},  # posição 2
+#         {"max_salary": 15000, "min_salary": 0},  # posição 3
+#         {"max_salary": 1500, "min_salary": 0},  # posição 4
+#         {"max_salary": -1, "min_salary": 10},  # posição 5
+#     ]
 
-    # salaries = [0, 1, 5, 1000, 2000, -1, -2, None, "", [], {}, lambda: 1]
+#     # salaries = [0, 1, 5, 1000, 2000, -1, -2, None, "", [], {}, lambda: 1]
 
-    filter_by_salary_range(jobs, 0)
+#     filter_by_salary_range(jobs, 0)
 
 
-main()
+# main()
 
 
 # ----------------------
